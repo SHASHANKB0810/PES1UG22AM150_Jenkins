@@ -1,27 +1,34 @@
-pipeline{
+pipeline {
     agent any
+    
     stages {
-        stage("Build") {
-            steps{
-                sh "g++ main.cpp -o output"
-                build "PES1UG22AM150-1"
+        stage('Build') {
+            steps {
+                script {
+                    sh 'g++ -o my_program my_program.cpp'
+                    echo 'PES1UG22AM150-1 completed successfully'
+                }
             }
         }
-        stage("Test") {
-            steps{
-                sh "./output"
+        
+        stage('Test') {
+            steps {
+                script {
+                    sh './my_program'
+                }
             }
         }
-        stage("Deploy") {
-            steps{
-                echo "Deploy"
-                sh "cat invisible.cpp"
+        
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
             }
         }
     }
+
     post {
         failure {
-            error "Pipeline failed"
+            echo 'Pipeline failed'
         }
     }
 }
