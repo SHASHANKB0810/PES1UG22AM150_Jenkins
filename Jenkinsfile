@@ -5,7 +5,8 @@ pipeline {
         stage('Test') {
     steps {
         script {
-            sh './non_existent_program'  // Intentional error
+           sh 'g++ -o my_program my_program.cpp'
+                    echo 'PES1UG22AM150-1 completed successfully'
         }
     }
 }
