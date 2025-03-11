@@ -2,15 +2,14 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh 'g++ -o my_program my_program.cpp'
-                    echo 'PES1UG22AM150-1 completed successfully'
-                }
-            }
+        stage('Test') {
+    steps {
+        script {
+            sh './non_existent_program'  // Intentional error
         }
-        
+    }
+}
+
         stage('Test') {
             steps {
                 script {
