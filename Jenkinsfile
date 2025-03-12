@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     sh 'g++ -o my_program my_program.cpp'
-                    echo 'Build YOUR_SRN-1 completed successfully'
+                    echo 'Build PES1UG22AM150 completed successfully'
                 }
             }
         }
